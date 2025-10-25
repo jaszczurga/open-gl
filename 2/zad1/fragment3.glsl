@@ -32,11 +32,12 @@ void main()
     // Mieszanie koloru bazowego z gradientem i dodanie szumu
     vec3 finalColor = baseColor * gradientX * gradientY;
     
-    // Dodatkowy efekt "ożywienia" (np. mruganie światła)
-    // Uzywamy modyfikatora odleglosci od srodka domku w pozycji X
+    // // Dodatkowy efekt "ożywienia" (np. mruganie światła)
+    // // Uzywamy modyfikatora odleglosci od srodka domku w pozycji X
     float distMod = abs(vPosition.x);
     finalColor.r += distMod * 0.2; // Lekka modyfikacja koloru czerwonego
     finalColor.g += sin(vPosition.x * 5.0) * 0.1;
+    finalColor.b += cos(vPosition.x * 3.0) * 0.1;
 
     // 3. Finalny kolor
     outColor = vec4(finalColor, 1.0);
